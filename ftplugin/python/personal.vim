@@ -15,6 +15,21 @@ setlocal smartindent
 setlocal colorcolumn=81
 setlocal textwidth=79
 
+let python_highlight_all = 1
+
+if has('python')
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+endif
+
 nnoremap <leader>r :execute "!pytest"<cr>
 nnoremap <leader>rf :execute "!pytest %"<cr>
 nnoremap <leader>r. :execute "!pytest %::" . cfi#format("%s", "")<cr>
