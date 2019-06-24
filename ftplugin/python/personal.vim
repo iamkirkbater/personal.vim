@@ -1,11 +1,10 @@
 " vim:foldmethod=marker:fen:
 scriptencoding utf-8
 
-
-if get(g:, 'loaded_personal_ftplugin_python')
-    finish
-endif
-let g:loaded_personal_ftplugin_python = 1
+" if get(g:, 'loaded_personal_ftplugin_python')
+"     finish
+" endif
+" let g:loaded_personal_ftplugin_python = 1
 
 set omnifunc=pythoncomplete#Complete
 setlocal expandtab
